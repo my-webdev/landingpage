@@ -2,7 +2,7 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed........');
     //    global variable
-    const sections = document.querySelectorAll("Section");
+    var sections = document.querySelectorAll("Section");
     //create header links
     sections.forEach(e => {
         var li = `<li>${e.id}</li>`;
@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             .innerHTML += li;
     })
     // create li element 
-    const li = document.querySelectorAll("li");
+    var li = document.querySelectorAll("li");
     // loop through links and add event listener 
     li.forEach(e => {
         // add eventListener to header li element 
@@ -19,8 +19,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
             // e.classList.add('active-link');
             console.log("link cliked..", e.id);
             //id of section is same as li links 
-            const sectionId = e.innerHTML;
-            const scrollTo = document.getElementById(sectionId);
+            var sectionId = e.innerHTML;
+            var scrollTo = document.getElementById(sectionId);
             scrollTo.scrollIntoView({
                 behavior: "smooth"
             });
@@ -33,15 +33,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
     window.addEventListener('scroll', () => {
 
         sections.forEach(e => {
-            const recTop = Math.floor(e.getBoundingClientRect().top);
+            var recTop = Math.floor(e.getBoundingClientRect().top);
             //add classes here 
             if (recTop >= -20 && recTop <= 400) {
-                const listclass = e.id;
+                var listclass = e.id;
                 document.querySelector(`.${listclass}`).classList.add("active-link")
                 e.classList.add('your-active-class');
             //else remove classes
             } else {
-                const listclass = e.id;
+                var listclass = e.id;
                 e.classList.remove('your-active-class');
                 document.querySelector(`.${listclass}`).classList.remove("active-link")
             }
@@ -50,8 +50,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     //adding class to my links
     function addLinkStyles() {
-        const li = document.getElementById('navbar__list');
-        const list = li.childNodes;
+        var li = document.getElementById('navbar__list');
+        var list = li.childNodes;
         var num = 1;
         list.forEach(e => {
             console.log(e.classList.add("section" + `${num}`));
